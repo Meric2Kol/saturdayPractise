@@ -1,0 +1,27 @@
+//PART A
+// select AccountId, FirstName, LastName, name, Email from contact
+
+// SELECT Id, Name, Phone FROM Account WHERE Phone = null ORDER BY Name
+
+// SELECT Id, Name FROM Contact WHERE AccountId = NULL
+
+// SELECT Count() FROM Opportunity 
+
+//PART c
+//Part c-1
+SELECT Id, StageName, Amount FROM Opportunity WHERE StageName = 'Closed Won' AND Amount>=35000
+
+// Part c-2
+// childen to parente
+SELECT Id, LastName, Account.Name FROM Contact ORDER BY LastName DESC
+
+// Part c-3
+// Parent to child 
+
+SELECT Id, (SELECT Id, Name, StageName FROM Opportunities WHERE StageName!='Closed Lost') FROM Account 
+
+//part c-4
+SELECT Id, Name, Amount FROM Opportunity ORDER BY Amount DESC LIMIT 10
+
+//part c-5
+SELECT Id, Name, Amount FROM Opportunity WHERE StageName !='Closed Won' AND StageName !='Closed Lost' ORDER BY Amount LIMIT 20
